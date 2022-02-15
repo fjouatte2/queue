@@ -173,7 +173,7 @@ class QueueJob(models.Model):
         for record in self:
             msg = record._message_failed_job()
             if msg:
-                record.message_post(body=msg, subtype="queue_job.mt_job_failed")
+                record.message_post(body=msg)
 
     def write(self, vals):
         res = super(QueueJob, self).write(vals)
