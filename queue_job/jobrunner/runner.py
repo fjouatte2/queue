@@ -409,7 +409,6 @@ class QueueJobRunner(object):
     def initialize_databases(self):
         for db_name in self.get_db_names():
             db = Database(db_name)
-            import pdb; pdb.set_trace()
             if db.has_queue_job:
                 self.db_by_name[db_name] = db
                 with db.select_jobs("state in %s", (NOT_DONE,)) as cr:
